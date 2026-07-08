@@ -1,0 +1,245 @@
+/* ===================================================================
+   GYM DASHBOARD — SYSTEM WINDOW THEME
+   Inspired by Solo Leveling's "system" UI / Jarvis-style HUD panels.
+   =================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg-void: #05070d;
+  --bg-panel: rgba(10, 20, 35, 0.82);
+  --bg-panel-solid: #0a1425;
+  --border-glow: #3ecfff;
+  --border-glow-dim: rgba(62, 207, 255, 0.35);
+  --accent-violet: #8a5cff;
+  --text-primary: #eaf6ff;
+  --text-muted: #587085;
+  --danger: #ff5c7a;
+  --font-display: 'Orbitron', sans-serif;
+  --font-body: 'Rajdhani', sans-serif;
+}
+
+/* ---------- Base canvas ---------- */
+[data-testid="stAppViewContainer"] {
+  background:
+    repeating-linear-gradient(0deg, rgba(62,207,255,0.035) 0px, rgba(62,207,255,0.035) 1px, transparent 1px, transparent 40px),
+    repeating-linear-gradient(90deg, rgba(62,207,255,0.035) 0px, rgba(62,207,255,0.035) 1px, transparent 1px, transparent 40px),
+    radial-gradient(ellipse at top, #0a1220 0%, var(--bg-void) 65%);
+  font-family: var(--font-body);
+  color: var(--text-primary);
+}
+
+[data-testid="stHeader"] {
+  background: transparent;
+}
+
+/* Hide default Streamlit chrome (menu button, footer badge) */
+#MainMenu, footer, [data-testid="stStatusWidget"] {
+  visibility: hidden;
+  height: 0;
+}
+
+/* ---------- Typography ---------- */
+h1, h2, h3, h4, .system-title {
+  font-family: var(--font-display) !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-primary) !important;
+  text-shadow: 0 0 12px var(--border-glow-dim);
+}
+
+p, span, div, label {
+  font-family: var(--font-body);
+}
+
+/* ---------- Metric cards -> HUD readouts ---------- */
+div[data-testid="stMetric"] {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-glow-dim);
+  padding: 1.1rem 1.2rem 0.9rem 1.2rem;
+  position: relative;
+  box-shadow: 0 0 18px rgba(62, 207, 255, 0.08), inset 0 0 24px rgba(62, 207, 255, 0.03);
+}
+
+/* corner brackets — the signature motif */
+div[data-testid="stMetric"]::before,
+div[data-testid="stMetric"]::after,
+.system-panel::before,
+.system-panel::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--border-glow);
+  border-style: solid;
+  opacity: 0.9;
+}
+div[data-testid="stMetric"]::before, .system-panel::before {
+  top: -1px; left: -1px;
+  border-width: 2px 0 0 2px;
+}
+div[data-testid="stMetric"]::after, .system-panel::after {
+  bottom: -1px; right: -1px;
+  border-width: 0 2px 2px 0;
+}
+
+div[data-testid="stMetric"] label {
+  font-family: var(--font-display) !important;
+  font-size: 0.68rem !important;
+  letter-spacing: 0.12em;
+  color: var(--text-muted) !important;
+  text-transform: uppercase;
+}
+
+div[data-testid="stMetric"] [data-testid="stMetricValue"] {
+  font-family: var(--font-body) !important;
+  font-weight: 700;
+  color: var(--border-glow) !important;
+  text-shadow: 0 0 10px rgba(62, 207, 255, 0.5);
+}
+
+/* Generic reusable "system panel" wrapper for your own content */
+.system-panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-glow-dim);
+  box-shadow: 0 0 18px rgba(62, 207, 255, 0.08);
+  padding: 1.25rem 1.5rem;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+/* ---------- Buttons ---------- */
+.stButton button, .stDownloadButton button {
+  font-family: var(--font-display) !important;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(62, 207, 255, 0.06) !important;
+  border: 1px solid var(--border-glow) !important;
+  color: var(--border-glow) !important;
+  border-radius: 0 !important;
+  transition: all 0.2s ease;
+}
+.stButton button:hover, .stDownloadButton button:hover {
+  background: var(--border-glow) !important;
+  color: var(--bg-void) !important;
+  box-shadow: 0 0 20px rgba(62, 207, 255, 0.6);
+}
+
+/* ---------- Date inputs / selects ---------- */
+[data-testid="stDateInput"] input, .stSelectbox div[data-baseweb="select"] {
+  font-family: var(--font-body) !important;
+  background-color: var(--bg-panel-solid) !important;
+  border: 1px solid var(--border-glow-dim) !important;
+  color: var(--text-primary) !important;
+  border-radius: 0 !important;
+}
+
+/* ---------- Sidebar / hover-expand nav ---------- */
+section[data-testid="stSidebar"] {
+  background: linear-gradient(180deg, #060a13 0%, #030509 100%);
+  border-right: 1px solid var(--border-glow-dim);
+  min-width: 72px !important;
+  max-width: 72px !important;
+  transition: min-width 0.28s ease, max-width 0.28s ease;
+  overflow: hidden;
+}
+section[data-testid="stSidebar"]:hover {
+  min-width: 250px !important;
+  max-width: 250px !important;
+}
+
+section[data-testid="stSidebar"] * {
+  white-space: nowrap;
+}
+
+/* page_link labels: hidden text until sidebar expands (icon-only collapsed) */
+section[data-testid="stSidebar"] [data-testid="stPageLink"] p {
+  font-family: var(--font-display) !important;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+section[data-testid="stSidebar"] [data-testid="stPageLink"]:hover p {
+  color: var(--border-glow);
+  text-shadow: 0 0 8px rgba(62, 207, 255, 0.6);
+}
+
+/* hide Streamlit's auto-generated nav divider clutter */
+section[data-testid="stSidebar"] hr {
+  border-color: var(--border-glow-dim);
+}
+
+/* ---------- Splash screen ---------- */
+#system-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-void);
+  animation: splashLifecycle 3.2s ease forwards;
+}
+
+.splash-panel {
+  position: relative;
+  padding: 2.5rem 4rem;
+  border: 1px solid var(--border-glow);
+  background: var(--bg-panel);
+  box-shadow: 0 0 40px rgba(62, 207, 255, 0.25), inset 0 0 30px rgba(62, 207, 255, 0.05);
+  text-align: center;
+  overflow: hidden;
+}
+
+.splash-panel::before, .splash-panel::after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-color: var(--border-glow);
+  border-style: solid;
+}
+.splash-panel::before { top: -1px; left: -1px; border-width: 3px 0 0 3px; }
+.splash-panel::after { bottom: -1px; right: -1px; border-width: 0 3px 3px 0; }
+
+.splash-scanline {
+  position: absolute;
+  left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--border-glow), transparent);
+  animation: scanSweep 1.6s ease-in-out infinite;
+  opacity: 0.8;
+}
+
+.splash-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  letter-spacing: 0.25em;
+  color: var(--text-primary);
+  text-shadow: 0 0 18px rgba(62, 207, 255, 0.7);
+  margin: 0;
+}
+
+.splash-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  letter-spacing: 0.15em;
+  color: var(--border-glow);
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+}
+
+@keyframes splashLifecycle {
+  0%   { opacity: 0; }
+  10%  { opacity: 1; }
+  82%  { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; pointer-events: none; }
+}
+
+@keyframes scanSweep {
+  0%   { top: 0%; }
+  50%  { top: 100%; }
+  100% { top: 0%; }
+}
