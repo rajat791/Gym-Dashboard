@@ -1,0 +1,35 @@
+[33mcommit 4734a7159a3a57162069c248be276535a06964f8[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Rajat Talwar <rajattalwar75@gmail.com>
+Date:   Wed Jul 8 16:09:10 2026 +0100
+
+    made dashboard using claude and ui design with claude, going to do sql functions on my own and will ask AI if i get stuck
+
+[33mcommit 28e80a33aa03f04db3e3fbce11d08f66a93009af[m
+Author: Rajat Talwar <rajattalwar75@gmail.com>
+Date:   Wed Jul 8 03:48:29 2026 +0100
+
+    saving changes
+
+[33mcommit d3cef0981e2ab8332565cec2a7b5ae9c597f483a[m
+Author: Rajat Talwar <rajattalwar75@gmail.com>
+Date:   Tue Jul 7 15:00:24 2026 +0100
+
+    7th july commit, moving onto SQL
+
+[33mcommit d73c16d1d06582d141bf6eba59276e119a61bbe8[m
+Author: Rajat Talwar <rajattalwar75@gmail.com>
+Date:   Sat Jul 4 00:38:57 2026 +0100
+
+    stage 2 almost finished
+
+[33mcommit d6d3b4c2287f35d1632a3aaad83a0fc6ff10e3b1[m
+Author: Rajat Talwar <rajattalwar75@gmail.com>
+Date:   Wed Jul 1 13:53:57 2026 +0100
+
+    stage 1 data exploration completed
+
+[33mcommit 3a29abce786bb2f27c1e49704f09d58f8d67f9ec[m
+Author: rajat791 <149380805+rajat791@users.noreply.github.com>
+Date:   Tue Jun 30 18:10:24 2026 +0100
+
+    Initial commit
